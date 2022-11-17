@@ -8,19 +8,21 @@ const OpenapiDoc = () => {
   return (
     <S.Container>
       <rapi-doc
-        spec-url="https://api.apis.guru/v2/specs/abstractapi.com/geolocation/1.0.0/openapi.yaml"
-        render-style="read"
+        spec-url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/api-with-examples.yaml"
         load-fonts="false"
         font-size="large"
         primary-color="#3b82f6"
         theme="light"
         bg-color="#fff"
         nav-bg-color="#fff"
+        nav-accent-text-color="transparent"
         use-path-in-nav-bar="true"
-        nav-active-item-marker="display:none;"
+        allow-advanced-search="false"
         regular-font="roboto"
-        layout="column"
-        schema-style="tree"
+        layout="row"
+        render-style="read"
+        response-area-height="400px"
+        schema-style="table"
         show-header="false"
         show-method-in-nav-bar="as-colored-block"
         style={{height: '100vh', width: '100%'}}

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  rapi-doc::host {
-    --nav-get-color: purple !important;
+  #rapi-doc {
+    --nav-get-color: purple;
   }
   rapi-doc::part(section-navbar) {
     border-right: 1px solid #e2e8f0;

@@ -27,6 +27,7 @@ const OpenapiDoc = () => {
         schema-style="table"
         show-header="false"
         show-method-in-nav-bar="as-colored-block"
+        nav-active-item-marker="colored-block"
         nav-item-spacing="relaxed"
         style={{height: '100vh', width: '100%'}}
       >

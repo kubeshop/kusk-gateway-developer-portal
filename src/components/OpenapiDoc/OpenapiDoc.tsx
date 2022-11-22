@@ -2,7 +2,6 @@
 
 import KuskLogo from "@assets/KuskLogo.svg";
 
-import "rapidoc";
 import { Typography } from "antd";
 import Image from "next/image";
 

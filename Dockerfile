@@ -14,5 +14,6 @@ RUN npm run build
 FROM ${TARGET}
 COPY --from=build /app/.next /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+ENV KUSK_GATEWAY_API_URL="http://kusk-gateway-private-envoy-fleet.kusk-system.svc.cluster.local/api"
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,7 +1,7 @@
-import {MainState} from '@models/main';
+import { MainState } from "@models/main";
 
 const initialMainState: MainState = {};
-
-export default {
-  main: initialMainState,
+const AppState = {
+	main: initialMainState,
 };
+export default AppState;

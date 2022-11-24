@@ -4,12 +4,19 @@ import KuskLogo from "@assets/KuskLogo.svg";
 
 import { Typography } from "antd";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
-const OpenapiDoc = () => {
+const OpenapiDoc = ({ data }: { data: string }) => {
+	const ref = useRef<any>(null);
+
+	useEffect(() => {
+		console.log(data);
+		ref?.current?.loadSpec(data);
+	}, [ref.current]);
 	return (
 		<div>
 			<rapi-doc
-				spec-url="https://api.apis.guru/v2/specs/abstractapi.com/geolocation/1.0.0/openapi.yaml"
+				ref={ref}
 				render-style="read"
 				load-fonts="false"
 				font-size="large"

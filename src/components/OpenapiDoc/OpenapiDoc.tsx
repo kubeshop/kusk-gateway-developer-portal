@@ -1,11 +1,11 @@
 "use client";
 
-import "rapidoc";
 import { Typography } from "antd";
 import Image from "next/image";
 import KuskLogo from "@assets/KuskLogo.svg";
 
 import * as S from "./styled";
+
 const OpenapiDoc = () => {
 	return (
 		<S.Container>

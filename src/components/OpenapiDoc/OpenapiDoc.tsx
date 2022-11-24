@@ -2,16 +2,24 @@
 
 import { Typography } from "antd";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import KuskLogo from "@assets/KuskLogo.svg";
 
 import * as S from "./styled";
 
-const OpenapiDoc = () => {
+const OpenapiDoc = ({ data }: { data: string }) => {
+	const ref = useRef<any>(null);
+
+	useEffect(() => {
+		console.log(data);
+		ref?.current?.loadSpec(data);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	return (
 		<S.Container>
 			<rapi-doc
+				ref={ref}
 				id="rapi-doc"
-				spec-url="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/api-with-examples.yaml"
 				load-fonts="false"
 				font-size="large"
 				primary-color="#3b82f6"

@@ -1,15 +1,38 @@
-"use client";
+import { cookies } from "next/headers";
 
-import Image from "next/image";
 import { wrapper } from "@redux/store";
+import YAML from "yaml";
 import { OpenapiDoc } from "@components/OpenapiDoc";
 
-function Home() {
+async function getData({
+	name,
+	namespace,
+}: {
+	name: string;
+	namespace: string;
+}) {
+	const nextCookies = cookies();
+
+	if (!name || !namespace) {
+		throw Error("Cannot fetch data without name and namespace");
+	}
+	const res = await fetch(
+		`${process.env.kuskAPI}/apis/${namespace}/${name}/crd`
+	);
+
+	const data = await res.json();
+	return YAML.parse(data?.spec?.spec);
+}
+
+export default async function Home({
+	searchParams,
+}: {
+	searchParams: { name: string; namespace: string };
+}) {
+	const data = await getData(searchParams);
 	return (
 		<div>
-			<OpenapiDoc />
+			<OpenapiDoc data={data} />
 		</div>
 	);
 }
-
-export default wrapper.withRedux(Home);

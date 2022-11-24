@@ -1,13 +1,24 @@
-import {Action, ThunkAction, configureStore} from '@reduxjs/toolkit';
+import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit";
+import { createWrapper } from "next-redux-wrapper";
 
-import {mainSlice} from './reducers/main';
+import { mainSlice } from "./reducers/main";
 
-export const store = configureStore({
-  reducer: {
-    main: mainSlice.reducer,
-  },
-});
+const makeStore = () =>
+	configureStore({
+		reducer: {
+			[mainSlice.name]: mainSlice.reducer,
+		},
+		devTools: true,
+	});
+export type AppStore = ReturnType<typeof makeStore>;
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;
+export type AppDispatch = AppStore["dispatch"];
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+	ReturnType,
+	RootState,
+	unknown,
+	Action<string>
+>;
+
+export const wrapper = createWrapper<AppStore>(makeStore);

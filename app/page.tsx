@@ -10,7 +10,6 @@ async function getData({
 	name: string;
 	namespace: string;
 }) {
-	console.log(process.env.kuskAPI);
 	const res = await fetch(
 		`${process.env.kuskAPI}/apis/${namespace}/${name}/crd`
 	);

@@ -1,23 +1,29 @@
 import Image from "next/image";
 import { wrapper } from "@redux/store";
+import YAML from "yaml";
 import { OpenapiDoc } from "@components/OpenapiDoc";
 
-async function getData(params: any) {
+async function getData({
+	name,
+	namespace,
+}: {
+	name: string;
+	namespace: string;
+}) {
 	console.log(process.env.kuskAPI);
-	console.log(params);
 	const res = await fetch(
-		"https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v2.0/json/api-with-examples.json"
+		`${process.env.kuskAPI}/apis/${namespace}/${name}/crd`
 	);
-
-	return res.json();
+	const data = await res.json();
+	return YAML.parse(data?.spec?.spec);
 }
 
 export default async function Home({
 	searchParams,
 }: {
-	searchParams: { app: string; namespace: string };
+	searchParams: { name: string; namespace: string };
 }) {
-	const data = await getData({ searchParams });
+	const data = await getData(searchParams);
 	return (
 		<div>
 			<OpenapiDoc data={data} />

@@ -4,9 +4,6 @@ const nextConfig = {
 		appDir: true,
 	},
 	assetPrefix: process.env.ASSET_URL || undefined,
-	env: {
-		kuskAPI: "https://api.kusk.io",
-	},
 };
 
 module.exports = nextConfig;

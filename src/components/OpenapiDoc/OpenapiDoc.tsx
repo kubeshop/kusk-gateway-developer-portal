@@ -12,9 +12,9 @@ const OpenapiDoc = ({ data }: { data: string }) => {
 
 	useEffect(() => {
 		console.log(data);
-		ref?.current?.loadSpec(data);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		ref?.current?.loadSpec && ref?.current?.loadSpec(data);
+	}, [ref?.current?.loadSpec]);
+
 	return (
 		<S.Container>
 			<rapi-doc

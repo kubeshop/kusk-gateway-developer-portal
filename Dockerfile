@@ -6,6 +6,7 @@ ENV NODE_ENV=production
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --prefer-offline
+COPY . ./
 RUN [ "npm", "run", "build" ]
 EXPOSE 3000
 ENTRYPOINT [ "npm", "run", "start" ]

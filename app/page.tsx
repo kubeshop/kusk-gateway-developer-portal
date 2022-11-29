@@ -1,6 +1,5 @@
 import { cookies } from "next/headers";
 
-import { wrapper } from "@redux/store";
 import YAML from "yaml";
 import { OpenapiDoc } from "@components/OpenapiDoc";
 

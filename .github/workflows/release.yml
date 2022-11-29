@@ -82,5 +82,3 @@ jobs:
           
           docker manifest create ${{ github.repository }}:latest --amend ${{ github.repository }}:${{ github.ref_name }}-arm64 --amend ${{ github.repository }}:${{ github.ref_name }}-amd64
           docker manifest push -p ${{ github.repository }}:latest
-
-  

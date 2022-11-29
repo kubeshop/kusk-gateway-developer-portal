@@ -1,4 +1,6 @@
-FROM docker.io/node:16.14-buster
+ARG TARGET=node:16.14-buster
+
+FROM docker.io/${TARGET}
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV KUSK_GATEWAY_API_URL="http://kusk-gateway-private-envoy-fleet.kusk-system.svc.cluster.local/api"

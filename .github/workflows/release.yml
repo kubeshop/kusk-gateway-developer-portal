@@ -61,7 +61,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ github.repository }}:${{ github.ref_name }}-${{ matrix.name }}
+          tags: kubeshop/kusk-devportal:${{ github.ref_name }}-${{ matrix.name }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             TARGET=${{ matrix.path }}
@@ -77,8 +77,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Create Docker manifest and push multi-arch image to Registry
         run: |
-          docker manifest create ${{ github.repository }}:${{ github.ref_name }} --amend ${{ github.repository }}:${{ github.ref_name }}-arm64 --amend ${{ github.repository }}:${{ github.ref_name }}-amd64
-          docker manifest push -p ${{ github.repository }}:${{ github.ref_name }}
+          docker manifest create kubeshop/kusk-devportal:${{ github.ref_name }} --amend kubeshop/kusk-devportal:${{ github.ref_name }}-arm64 --amend kubeshop/kusk-devportal:${{ github.ref_name }}-amd64
+          docker manifest push -p kubeshop/kusk-devportal:${{ github.ref_name }}
           
-          docker manifest create ${{ github.repository }}:latest --amend ${{ github.repository }}:${{ github.ref_name }}-arm64 --amend ${{ github.repository }}:${{ github.ref_name }}-amd64
-          docker manifest push -p ${{ github.repository }}:latest
+          docker manifest create kubeshop/kusk-devportal:latest --amend kubeshop/kusk-devportal:${{ github.ref_name }}-arm64 --amend kubeshop/kusk-devportal:${{ github.ref_name }}-amd64
+          docker manifest push -p kubeshop/kusk-devportal:latest

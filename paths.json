@@ -1,26 +1,28 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@assets": ["src/assets/"],
-      "@components/*": ["src/components/*"],
-      "@components": ["src/components/"],
-      "@constants/*": ["src/constants/*"],
-      "@constants": ["src/constants/"],
-      "@models/*": ["src/models/*"],
-      "@models": ["src/models/"],
-      "@pages/*": ["src/pages/*"],
-      "@pages": ["src/pages/"],
-      "@redux/*": ["src/redux/*"],
-      "@redux": ["src/redux/"],
-      "@styles/*": ["src/styles/*"],
-      "@styles": ["src/styles/"],
-      "@utils/*": ["src/utils/*"],
-      "@utils": ["src/utils/"],
-      "@src/*": ["src/*"],
-      "@src": ["src/"],
-      "@root/*": ["./*"],
-      "@root": ["./"]
-    }
-  }
+	"compilerOptions": {
+		"paths": {
+			"@assets/*": ["src/assets/*"],
+			"@assets": ["src/assets/"],
+			"@components/*": ["src/components/*"],
+			"@components": ["src/components/"],
+			"@constants/*": ["src/constants/*"],
+			"@constants": ["src/constants/"],
+			"@models/*": ["src/models/*"],
+			"@models": ["src/models/"],
+			"@pages/*": ["src/pages/*"],
+			"@pages": ["src/pages/"],
+			"@redux/*": ["src/redux/*"],
+			"@redux": ["src/redux/"],
+			"@styles/*": ["src/styles/*"],
+			"@styles": ["src/styles/"],
+			"@utils/*": ["src/utils/*"],
+			"@utils": ["src/utils/"],
+			"@src/*": ["src/*"],
+			"@src": ["src/"],
+			"@public/*": ["public/*"],
+			"@public": ["public/"],
+			"@root/*": ["./*"],
+			"@root": ["./"]
+		}
+	}
 }

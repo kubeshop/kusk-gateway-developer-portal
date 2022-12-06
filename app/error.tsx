@@ -1,10 +1,10 @@
 "use client";
 
-// 'use client' marks this page as a Client Component
-// https://beta.nextjs.org/docs/rendering/server-and-client-components
-
 import { useEffect } from "react";
-
+import WrongIcon from "@public/wrong.svg";
+import * as S from "./error.styled";
+import Image from "next/image";
+import { Typography } from "antd";
 export default function Error({
 	error,
 	reset,
@@ -18,9 +18,15 @@ export default function Error({
 	}, [error]);
 
 	return (
-		<div>
-			<p>Something went wrong!</p>
-			<button onClick={() => reset()}>Reset error boundary</button>
-		</div>
+		<S.Container>
+			<Image src={WrongIcon} alt="Something went wrong icon" />
+			<S.Content>
+				<Typography.Title level={2}>Kusk Dev Portal</Typography.Title>
+				<Typography.Text>
+					Make sure you are providing the target API and the target API
+					namespace as a query params.
+				</Typography.Text>
+			</S.Content>
+		</S.Container>
 	);
 }

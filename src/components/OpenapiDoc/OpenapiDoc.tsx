@@ -1,6 +1,5 @@
 "use client";
 
-import { Typography } from "antd";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import KuskLogo from "@assets/KuskLogo.svg";
@@ -56,7 +55,7 @@ const OpenapiDoc = ({ data }: { data: string }) => {
 						alt="Kusk Logo"
 						style={{ width: 30, height: 30, verticalAlign: "top" }}
 					/>
-					<h2 style={{ marginBottom: 0 }}>Kusk</h2>
+					<h2>Kusk</h2>
 				</div>
 			</rapi-doc>
 		</S.Container>

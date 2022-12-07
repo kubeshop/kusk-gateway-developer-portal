@@ -1,4 +1,5 @@
 import { Roboto } from "@next/font/google";
+import RootStyleRegistry from "./RootStyleRegistry";
 
 import "./globals.css";
 
@@ -19,7 +20,9 @@ export default function RootLayout({
       */}
 
 			<head />
-			<body>{children}</body>
+			<body>
+				<RootStyleRegistry>{children}</RootStyleRegistry>
+			</body>
 			<script
 				type="module"
 				src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"

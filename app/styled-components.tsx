@@ -9,7 +9,9 @@ export function useStyledComponentsRegistry() {
 	const styledComponentsFlushEffect = () => {
 		const styles = styledComponentsStyleSheet.getStyleElement();
 
+		// @ts-ignore
 		styledComponentsStyleSheet?.instance?.clearTag();
+
 		return <>{styles}</>;
 	};
 
